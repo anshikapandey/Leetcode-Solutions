@@ -1,0 +1,18 @@
+class Solution:
+    def getAverages(self, nums, k):
+        arr=[]
+        #max_avg=nums[0:2*k+1]
+        test=sum(nums[0:(2*k)+1])
+        #print(test)
+        for i in range(0,len(nums)):
+            if i < k or i>=len(nums)-k:
+                arr.append(-1)
+                #print(arr)
+            elif i==k:
+              arr.append(test//((2*k)+1))
+            else:
+                test= (test-nums[i-k-1]+nums[i+k])
+                #print(test)
+                arr.append(test//((2*k)+1))
+                #print(arr)
+        return arr
